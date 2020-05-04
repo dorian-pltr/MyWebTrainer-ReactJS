@@ -1,38 +1,126 @@
-.App {
-  text-align: center;
+/*
+App.css
+---------------
+
+par Dorian PELLETIER
+*/
+
+* {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+	background: url("./images/haltere.png") repeat;
+	background-color: #e7f3fa;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+strong {
+	font-size: 1em;
+	font-style: bold;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+article em {
+	color: #1f1f1f;
+	text-align: justify;
 }
 
-.App-link {
-  color: #61dafb;
+p {
+	font-size: 1em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1 {
+	font-family: "Arial Narrow Bold", sans-serif, sans-serif;
+	text-shadow: 1px 1px 40px darkgray;
+	background-color: rgba(0, 0, 0, 0.85);
+	box-shadow: 4px 4px 5px darkgray;
+	border-radius: 10px;
+	padding: 20px 0px 20px 2px;
+	/* haut droite bas gauche */
+	color: orangered;
+	text-align: center;
+	font-size: 4em;
+}
+
+h2 {
+	text-align: center;
+	font-size: 2em;
+}
+
+h3 {
+	background-color: #f77031c9;
+	box-shadow: 4px 4px 5px darkgray;
+	border-radius: 10px;
+	padding: 5px 0px 5px 0px;
+	/* haut droite bas gauche */
+	text-align: center;
+	text-decoration: none;
+	font-size: 1.5em;
+}
+
+h3 a:visited,
+h3 a:visited,
+h3 a:link,
+h3 a:active {
+	text-decoration: none;
+}
+
+h4 {
+	color: rgb(255, 102, 0);
+	text-shadow: 2px 2px 5px black;
+	font-size: 1.2em;
+}
+
+h5 {
+	font-size: 1em;
+}
+
+article {
+	background-color: #616161c5;
+	box-shadow: 4px 4px 5px darkgray;
+	border-radius: 10px;
+	padding: 0px 10px 10px 10px;
+	/* haut droite bas gauche */
+	overflow: auto;
+	/* l'article se poursuit jusqu'à la fin de l'image */
+	margin-bottom: 10px;
+}
+
+footer {
+	text-align: center;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.85);
+	box-shadow: 4px 4px 5px darkgray;
+	border-radius: 10px;
+	padding: 1px 0px 1px 0px;
+	/* haut droite bas gauche */
+}
+
+#choixFrequence {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.frequence_false,
+.programme_false {
+	justify-content: center;
+	font-size: 1em;
+	flex: 1 1;
+	background-color: silver;
+	border-radius: 10px;
+	padding: 1em 0 1em 0;
+	margin: 0.2em;
+	display: flex;
+}
+
+.frequence_true,
+.programme_true {
+	justify-content: center;
+	font-size: 1em;
+	flex: 1 1;
+	background-color: silver;
+	border-radius: 10px;
+	padding: 1em 0 1em 0;
+	box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.582);
+	margin: 0.2em;
+	display: flex;
 }
