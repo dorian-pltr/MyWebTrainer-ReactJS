@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/MyWebTrainer-ReactJS/static/css/main.51ff5fc2.chunk.css",
+    "main.js": "/MyWebTrainer-ReactJS/static/js/main.3b091e73.chunk.js",
+    "main.js.map": "/MyWebTrainer-ReactJS/static/js/main.3b091e73.chunk.js.map",
+    "runtime-main.js": "/MyWebTrainer-ReactJS/static/js/runtime-main.564796ad.js",
+    "runtime-main.js.map": "/MyWebTrainer-ReactJS/static/js/runtime-main.564796ad.js.map",
+    "static/js/2.b83020b8.chunk.js": "/MyWebTrainer-ReactJS/static/js/2.b83020b8.chunk.js",
+    "static/js/2.b83020b8.chunk.js.map": "/MyWebTrainer-ReactJS/static/js/2.b83020b8.chunk.js.map",
+    "index.html": "/MyWebTrainer-ReactJS/index.html",
+    "precache-manifest.e8c17ca1e7b12f0bd0cf87ce2125c165.js": "/MyWebTrainer-ReactJS/precache-manifest.e8c17ca1e7b12f0bd0cf87ce2125c165.js",
+    "service-worker.js": "/MyWebTrainer-ReactJS/service-worker.js",
+    "static/css/main.51ff5fc2.chunk.css.map": "/MyWebTrainer-ReactJS/static/css/main.51ff5fc2.chunk.css.map",
+    "static/js/2.b83020b8.chunk.js.LICENSE.txt": "/MyWebTrainer-ReactJS/static/js/2.b83020b8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.564796ad.js",
+    "static/js/2.b83020b8.chunk.js",
+    "static/css/main.51ff5fc2.chunk.css",
+    "static/js/main.3b091e73.chunk.js"
+  ]
+}
