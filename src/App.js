@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Vignette from "./Vignette";
+import ComfirmFrequency from "./ConfirmFrequency";
 import "./App.css";
 
 class App extends Component {
@@ -10,36 +11,22 @@ class App extends Component {
 		this.state = {
 			hoverFreq: [false, false, false],
 			hover: false,
-			isMounted: false,
 		};
 	}
-	componentDidMount() {
-		this.setState({ isMounted: true });
-		console.log("Component Mount");
-	}
 
-	componentWillUnmount() {
-		this.state.isMounted = false;
-		console.log("Component Unmount");
-	}
 	// Méthode pour gérer la souris sur les vignettes de choix de fréquence
 	toggleHoverFreq(i) {
 		let hoverFreqCopy = this.state.hoverFreq;
 		hoverFreqCopy[i] = !hoverFreqCopy[i];
-		if (this.state.isMounted === true) {
-			this.setState({ hoverFreq: hoverFreqCopy });
-		}
+		this.setState({ hoverFreq: hoverFreqCopy });
 	}
 	// Méthode pour gérer la souris sur une vignette
 	toggleHover() {
 		let hoverCopy = !this.state.hover;
-		if (this.state.isMounted === true) {
-			this.setState({ hover: hoverCopy });
-		}
+		this.setState({ hover: hoverCopy });
 	}
 
-	// Méthode pour gérer le choix de la fréquence avec le clique utilisateur
-	ChoixClique(type) {
+	ChoixProgramme(type) {
 		let programme;
 		console.log("ChoixClique", type);
 		switch (type) {
@@ -81,6 +68,7 @@ class App extends Component {
 			</div>
 		);
 	}
+
 	// Méthode pour gérer le clique sur le bouton "Je construis mon programme"
 	ProgrammeClique(type) {
 		console.log("ProgrammeClique", type);
@@ -97,21 +85,21 @@ class App extends Component {
 					<Vignette
 						className={"frequence_" + this.state.hoverFreq[0]}
 						text="1 à 3 fois par semaine"
-						onClick={() => this.ChoixClique("1 à 3 fois par semaine")}
+						onClick={() => this.ChoixProgramme("1 à 3 fois par semaine")}
 						onMouseEnter={() => this.toggleHoverFreq(0)}
 						onMouseLeave={() => this.toggleHoverFreq(0)}
 					/>
 					<Vignette
 						className={"frequence_" + this.state.hoverFreq[1]}
 						text="4 fois par semaine"
-						onClick={() => this.ChoixClique("4 fois par semaine")}
+						onClick={() => this.ChoixProgramme("4 fois par semaine")}
 						onMouseEnter={() => this.toggleHoverFreq(1)}
 						onMouseLeave={() => this.toggleHoverFreq(1)}
 					/>
 					<Vignette
 						className={"frequence_" + this.state.hoverFreq[2]}
 						text="+ de 5 fois par semaine"
-						onClick={() => this.ChoixClique("+ de 5 fois par semaine")}
+						onClick={() => this.ChoixProgramme("+ de 5 fois par semaine")}
 						onMouseEnter={() => this.toggleHoverFreq(2)}
 						onMouseLeave={() => this.toggleHoverFreq(2)}
 					/>
