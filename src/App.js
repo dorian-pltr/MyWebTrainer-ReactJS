@@ -135,18 +135,32 @@ class App extends Component {
 				<div id="choixProgramme">
 					<p>
 						Le format d'entrainement proposé par votre coach est le {this.state.programChosen} <br />
+						{this.state.programChosen === "FullBody" && this.fullbodyProgram()}
+						{this.state.programChosen === "HalfBody" && this.halfbodyProgram()}
+						{this.state.programChosen === "Split" && this.splitProgram()}
 					</p>
 				</div>
 			</div>
 		);
 	}
 
+	fullbodyProgram() {
+		return <em>Créer mon programme Fullbody, en cours de développement...</em>;
+	}
+
+	halfbodyProgram() {
+		return <em>Créer mon programme Halfbody, en cours de développement...</em>;
+	}
+
+	splitProgram() {
+		return <em>Créer mon programme Split, en cours de développement...</em>;
+	}
 	render() {
 		return (
 			<div>
-				{this.state.step1of4 ? this.FrequencyChoose() : null}
-				{this.state.step2of4 ? this.ProgramComfirm() : null}
-				{this.state.step3of4 ? this.ProgramCreation() : null}
+				{this.state.step1of4 && this.FrequencyChoose()}
+				{this.state.step2of4 && this.ProgramComfirm()}
+				{this.state.step3of4 && this.ProgramCreation()}
 			</div>
 		);
 	}

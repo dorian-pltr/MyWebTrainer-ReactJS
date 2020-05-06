@@ -96,12 +96,14 @@ footer {
 }
 
 #frequencyChoose {
+	animation: fadeIn 2s ease 0.5s forwards;
 	display: flex;
 	flex-wrap: wrap;
 	align-content: center;
 }
 
 #programComfirm {
+	animation: fadeIn 2s ease 0.5s forwards;
 	display: flex;
 	flex-wrap: wrap;
 	align-content: center;
@@ -121,5 +123,18 @@ footer {
 }
 
 .button_true {
-	box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.582);
+	box-shadow: inset 8px 8px 5px rgba(0, 0, 0, 0.582);
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.3s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		box-shadow: inset 8px 8px 5px rgba(0, 0, 0, 0);
+	}
+	100% {
+		box-shadow: inset 8px 8px 5px rgba(0, 0, 0, 0.582);
+	}
 }
