@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-/* Ce composant permet l'affichage des "vignettes" */
+/* Ce composant permet l'affichage des "buttons" */
 
 import React from "react";
 
-const Vignette = ({ className, text, onClick, onMouseEnter, onMouseLeave }) => {
+const Button = ({ className, text, onClick, onMouseEnter, onMouseLeave }) => {
 	return (
 		<div className={className} onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
 			<span>{text}</span>
@@ -11,4 +11,4 @@ const Vignette = ({ className, text, onClick, onMouseEnter, onMouseLeave }) => {
 	);
 };
 
-export default Vignette;
+export default Button;
