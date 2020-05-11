@@ -28,40 +28,37 @@ p {
 	font-size: 1em;
 }
 
-h1 {
+header > h1 {
 	font-family: "Arial Narrow Bold", sans-serif, sans-serif;
-	text-shadow: 1px 1px 40px darkgray;
-	background-color: rgba(0, 0, 0, 0.85);
-	box-shadow: 4px 4px 5px darkgray;
-	border-radius: 10px;
+	text-shadow: 5px 1px 5px rgb(0, 0, 0);
+	background-color: rgb(51, 51, 51);
 	padding: 20px 0px 20px 2px;
 	/* haut droite bas gauche */
+	margin-top: 0;
+	margin-bottom: 0;
 	color: orangered;
 	text-align: center;
 	font-size: 4em;
 }
 
-h2 {
+header > h2 {
 	text-align: center;
+	background-color: #222222;
+	box-shadow: 4px 4px 5px darkgray;
+	color: silver;
 	font-size: 2em;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 10px;
 }
 
-h3 {
+nav {
 	background-color: #f77031c9;
 	box-shadow: 4px 4px 5px darkgray;
-	border-radius: 10px;
-	padding: 5px 0px 5px 0px;
+	padding: 1px 0px 1px 0px;
 	/* haut droite bas gauche */
 	text-align: center;
-	text-decoration: none;
-	font-size: 1.5em;
-}
-
-h3 a:visited,
-h3 a:visited,
-h3 a:link,
-h3 a:active {
-	text-decoration: none;
+	font-size: 1.3em;
 }
 
 h4 {
@@ -76,13 +73,10 @@ h5 {
 
 article {
 	background-color: #616161c5;
-	box-shadow: 4px 4px 5px darkgray;
-	border-radius: 10px;
-	padding: 0px 10px 10px 10px;
+	padding: 30px 10px 50px 10px;
 	/* haut droite bas gauche */
 	overflow: auto;
 	/* l'article se poursuit jusqu'à la fin de l'image */
-	margin-bottom: 10px;
 }
 
 footer {
@@ -90,7 +84,6 @@ footer {
 	color: white;
 	background-color: rgba(0, 0, 0, 0.85);
 	box-shadow: 4px 4px 5px darkgray;
-	border-radius: 10px;
 	padding: 1px 0px 1px 0px;
 	/* haut droite bas gauche */
 }
@@ -137,4 +130,24 @@ footer {
 	100% {
 		box-shadow: inset 8px 8px 5px rgba(0, 0, 0, 0.582);
 	}
+}
+
+#fullbody {
+	display: flex;
+	flex-direction: row;
+}
+
+#fullbody_A,
+#fullbody_B {
+	min-width: 45%;
+	max-width: 45%;
+	padding: 10px;
+	margin: 10px;
+	border: solid;
+	border-color: rgba(0, 0, 0, 0.85);
+	background-color: darkgrey;
+}
+
+.center {
+	text-align: center;
 }

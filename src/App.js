@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import Button from "./Button";
 import "./App.css";
+import FullBody from "./Fullbody";
 
 class App extends Component {
 	constructor() {
@@ -35,7 +36,7 @@ class App extends Component {
 		// eslint-disable-next-line no-unused-vars
 		return (
 			<div>
-				<h4>Laissez vous guider - étape 1/4</h4>
+				<h4>Laissez vous guider - étape 1/3</h4>
 				<h5>Je choisi ma fréquence d'entrainement</h5>
 				<div id="frequencyChoose">
 					<Button
@@ -72,20 +73,22 @@ class App extends Component {
 			case "1 à 3 fois par semaine":
 				this.setState({
 					programChosen: "FullBody",
-					programDescription: "entrainer tout vos muscles à chaque séances",
+					programDescription:
+						"entrainer tout vos muscles à chaque séances. Il est idéal pour les débutants et pour les sportifs avec un emploi du temps chargé.",
 				});
 				break;
 			case "4 fois par semaine":
 				this.setState({
 					programChosen: "HalfBody",
 					programDescription:
-						"dédier deux séances d'entrainement aux muscles du haut de votre corps, et deux séances au bas de votre corps",
+						"dédier deux séances d'entrainement aux muscles du haut de votre corps, et deux séances au bas de votre corps. C'est le meilleur compromis pour les sportifs intermédiaires.",
 				});
 				break;
 			case "+ de 5 fois par semaine":
 				this.setState({
 					programChosen: "Split",
-					programDescription: "entrainer un groupe musculaire différent à chaque séance",
+					programDescription:
+						"entrainer un groupe musculaire différent à chaque séance. Il est idéal pour les sportifs avancés, mais aussi pour les sportifs avec beaucoup de temps libre.",
 				});
 				break;
 			default:
@@ -99,12 +102,12 @@ class App extends Component {
 		let frequencyChosen = this.state.frequencyChosen;
 		return (
 			<div>
-				<h4>Laissez vous guider - étape 2/4</h4>
+				<h4>Laissez vous guider - étape 2/3</h4>
 				<h5>Je confirme mon format d'entrainement</h5>
 				<p>
 					Vous avez choisi de vous entrainer {frequencyChosen}, votre coach vous recommande un programme de type{" "}
 					<b>{this.state.programChosen}</b>.<br />
-					Ce programme consiste à {programDescripton}.
+					Ce programme consiste à {programDescripton}
 				</p>
 				<div id="programComfirm">
 					<Button
@@ -130,16 +133,9 @@ class App extends Component {
 	ProgramCreation() {
 		return (
 			<div>
-				<h4>Laissez vous guider - étape 3/4</h4>
-				<h5>Je crée mon programme d'entrainement</h5>
-				<div id="choixProgramme">
-					<p>
-						Le format d'entrainement proposé par votre coach est le {this.state.programChosen} <br />
-						{this.state.programChosen === "FullBody" && this.fullbodyProgram()}
-						{this.state.programChosen === "HalfBody" && this.halfbodyProgram()}
-						{this.state.programChosen === "Split" && this.splitProgram()}
-					</p>
-				</div>
+				{this.state.programChosen === "FullBody" && <FullBody />}
+				{this.state.programChosen === "HalfBody" && this.halfbodyProgram()}
+				{this.state.programChosen === "Split" && this.splitProgram()}
 			</div>
 		);
 	}
