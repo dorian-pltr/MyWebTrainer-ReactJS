@@ -1,11 +1,11 @@
 // Cette coomposant contient la liste des exercices proposés
-
 import React from "react";
 
-const ExerciceChoice = ({ muscleName }) => {
-	let hamstring = ["Soulevé de terre", "Soulevé de terre jambes tendues", "Flexion de jambes"];
-	let quadriceps = ["Squat", "Presse à cuisses", "Fentes", "Squat bulgare", "Extension de jambes"];
+const ExerciceChoice = ({ muscleName, onChange, value }) => {
+	let hamstring = ["", "Soulevé de terre", "Soulevé de terre jambes tendues", "Flexion de jambes"];
+	let quadriceps = ["", "Squat", "Presse à cuisses", "Fentes", "Squat bulgare", "Extension de jambes"];
 	let chest = [
+		"",
 		"Développé couché à la barre",
 		"Développé couché aux haltères",
 		"Développé couche à la machine",
@@ -13,6 +13,7 @@ const ExerciceChoice = ({ muscleName }) => {
 		"Pompes au sol",
 	];
 	let back = [
+		"",
 		"Tractions",
 		"Tirage vertical",
 		"Rowing barre",
@@ -21,6 +22,7 @@ const ExerciceChoice = ({ muscleName }) => {
 		"Tirage poulie basse",
 	];
 	let shoulders = [
+		"",
 		"Développé millitaire",
 		"Développé haltères",
 		"Rowing menton",
@@ -29,6 +31,7 @@ const ExerciceChoice = ({ muscleName }) => {
 		"Facepull",
 	];
 	let biceps = [
+		"",
 		"Curl barre",
 		"Curl haltère",
 		"Curl pupitre",
@@ -37,6 +40,7 @@ const ExerciceChoice = ({ muscleName }) => {
 		"Curl à la machine",
 	];
 	let triceps = [
+		"",
 		"Barre au front",
 		"Extension nuque",
 		"Kick back",
@@ -44,6 +48,7 @@ const ExerciceChoice = ({ muscleName }) => {
 		"Développé couché sérré",
 	];
 	let abs = [
+		"",
 		"Crunch au sol",
 		"Relevés de bassin sur plan incliné",
 		"Sit-up",
@@ -53,31 +58,32 @@ const ExerciceChoice = ({ muscleName }) => {
 		"Flexions du buste à la machine",
 		"Roue abdominale",
 	];
-	let lower_back = ["Extensions au banc", "Good morning"];
+	let lower_back = ["", "Extensions au banc", "Good morning"];
+
 	let exercices;
 	switch (muscleName) {
-		case "hamstring":
+		case "hamstringA" || "hamstringB":
 			exercices = hamstring;
 			break;
-		case "quadriceps":
+		case "quadricepsA" || "quadricepsB":
 			exercices = quadriceps;
 			break;
-		case "chest":
+		case "chestA" || "chestB":
 			exercices = chest;
 			break;
-		case "back":
+		case "backA" || "backB":
 			exercices = back;
 			break;
-		case "shoulders":
+		case "shouldersA" || "shouldersB":
 			exercices = shoulders;
 			break;
-		case "biceps":
+		case "bicepsA" || "tricepsB":
 			exercices = biceps;
 			break;
-		case "triceps":
+		case "tricepsA" || "tricepsB":
 			exercices = triceps;
 			break;
-		case "abs":
+		case "absA" || "absB":
 			exercices = abs;
 			break;
 		default:
@@ -87,7 +93,7 @@ const ExerciceChoice = ({ muscleName }) => {
 	var select = [];
 	for (let i = 0; i < exercices.length; i++) {
 		select.push(
-			<option value={exercices + i} key={i}>
+			<option value={exercices[i]} key={i}>
 				{exercices[i]}
 			</option>
 		);
@@ -95,11 +101,10 @@ const ExerciceChoice = ({ muscleName }) => {
 
 	return (
 		<div className={muscleName}>
-			<select name={muscleName} id={muscleName + "-select"} className="select">
+			<select name={muscleName} id={muscleName + "-select"} className="select" value={value} onChange={onChange}>
 				{select}
 			</select>
 		</div>
 	);
 };
-
 export default ExerciceChoice;
