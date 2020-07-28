@@ -20,6 +20,7 @@ class App extends Component {
 			fbExercicesA: ["", "", "", "", "", "", "", ""],
 			fbExercicesB: ["", "", "", "", "", "", "", ""],
 		};
+		this.handleExerciceChoice = this.handleExerciceChoice.bind(this); // garantir le this dans notre méthode
 	}
 
 	// Méthode pour gérer la souris sur plusierus "buttons"
@@ -34,16 +35,109 @@ class App extends Component {
 		this.setState({ hover: hoverCopy });
 	}
 
-	handleExerciceChoice(programmName, muscleName, exerciceName) {
-		console.log(programmName, muscleName, exerciceName);
-		if (programmName === "fullbodyA") {
-			console.log("uh");
-			if (muscleName === "hamstringA") {
-				let exercice = this.state.fbExercicesA;
-				exercice[0] = exerciceName;
-				this.setState({ fbExercicesA: exercice });
-				console.log("uh-uh");
-			}
+	handleExerciceChoice(event) {
+		let exercicesA = this.state.fbExercicesA;
+		let exercicesB = this.state.fbExercicesB;
+
+		switch (event.target.name) {
+			case "hamstringA":
+				exercicesA = this.state.fbExercicesA;
+				exercicesA[0] = event.target.value;
+				this.setState({ fbExercicesA: exercicesA });
+				break;
+
+			case "quadricepsA":
+				exercicesA = this.state.fbExercicesA;
+				exercicesA[1] = event.target.value;
+				this.setState({ fbExercicesA: exercicesA });
+				break;
+
+			case "chestA":
+				exercicesA = this.state.fbExercicesA;
+				exercicesA[2] = event.target.value;
+				this.setState({ fbExercicesA: exercicesA });
+				break;
+
+			case "backA":
+				exercicesA = this.state.fbExercicesA;
+				exercicesA[3] = event.target.value;
+				this.setState({ fbExercicesA: exercicesA });
+				break;
+
+			case "shouldersA":
+				exercicesA = this.state.fbExercicesA;
+				exercicesA[4] = event.target.value;
+				this.setState({ fbExercicesA: exercicesA });
+				break;
+
+			case "bicepsA":
+				exercicesA = this.state.fbExercicesA;
+				exercicesA[5] = event.target.value;
+				this.setState({ fbExercicesA: exercicesA });
+				break;
+
+			case "tricepsA":
+				exercicesA = this.state.fbExercicesA;
+				exercicesA[6] = event.target.value;
+				this.setState({ fbExercicesA: exercicesA });
+				break;
+
+			case "absA":
+				exercicesA = this.state.fbExercicesA;
+				exercicesA[7] = event.target.value;
+				this.setState({ fbExercicesA: exercicesA });
+				break;
+
+			case "hamstringB":
+				exercicesB = this.state.fbExercicesB;
+				exercicesB[0] = event.target.value;
+				this.setState({ fbExercicesB: exercicesB });
+				break;
+
+			case "quadricepsB":
+				exercicesB = this.state.fbExercicesB;
+				exercicesB[1] = event.target.value;
+				this.setState({ fbExercicesB: exercicesB });
+				break;
+
+			case "chestB":
+				exercicesB = this.state.fbExercicesB;
+				exercicesB[2] = event.target.value;
+				this.setState({ fbExercicesB: exercicesB });
+				break;
+
+			case "backB":
+				exercicesB = this.state.fbExercicesB;
+				exercicesB[3] = event.target.value;
+				this.setState({ fbExercicesB: exercicesB });
+				break;
+
+			case "shouldersB":
+				exercicesB = this.state.fbExercicesB;
+				exercicesB[4] = event.target.value;
+				this.setState({ fbExercicesB: exercicesB });
+				break;
+
+			case "bicepsB":
+				exercicesB = this.state.fbExercicesB;
+				exercicesB[5] = event.target.value;
+				this.setState({ fbExercicesB: exercicesB });
+				break;
+
+			case "tricepsB":
+				exercicesB = this.state.fbExercicesB;
+				exercicesB[6] = event.target.value;
+				this.setState({ fbExercicesB: exercicesB });
+				break;
+
+			case "absB":
+				exercicesB = this.state.fbExercicesB;
+				exercicesB[7] = event.target.value;
+				this.setState({ fbExercicesB: exercicesB });
+				break;
+
+			default:
+				break;
 		}
 	}
 
@@ -136,7 +230,7 @@ class App extends Component {
 					<Button
 						className={"button_" + this.state.hoverFew[1]}
 						text="Je construis mon programme"
-						onClick={() => this.setState({ step2of4: false, step3of4: true })}
+						onClick={() => this.setState({ step2of4: false, step3of4: true, hoverFew: [false, false, false] })}
 						onMouseEnter={() => this.toggleHoverFew(1)}
 						onMouseLeave={() => this.toggleHoverFew(1)}
 					/>
@@ -189,46 +283,73 @@ class App extends Component {
 					<div id="fullbody_A">
 						<h5 className="center">Programme A</h5>
 						<p>Ischio-jambiers</p>
-						<ExercicesChoice
-							muscleName="hamstringA"
-							defaultValue={this.state.fbExercicesA[0]}
-							onChange={() =>
-								this.handleExerciceChoice({
-									programmName: "fullbodyA",
-									muscleName: "hamstringA",
-									exerciceName: "test",
-								})
-							}
-						/>
+						<ExercicesChoice muscleName="hamstringA" onChange={this.handleExerciceChoice} />
+						Vous avez choisi : {this.state.fbExercicesA[0]}
 						<p>Quadriceps et fessiers</p>
-						<ExercicesChoice muscleName="quadricepsA" />
+						<ExercicesChoice muscleName="quadricepsA" onChange={this.handleExerciceChoice} />
+						Vous avez choisi : {this.state.fbExercicesA[1]}
 						<p>Pectoraux</p>
-						<ExercicesChoice muscleName="chestA" />
+						<ExercicesChoice muscleName="chestA" onChange={this.handleExerciceChoice} />
+						Vous avez choisi : {this.state.fbExercicesA[2]}
 						<p>Dorsaux</p>
-						<ExercicesChoice muscleName="backA" />
+						<ExercicesChoice muscleName="backA" onChange={this.handleExerciceChoice} />
+						Vous avez choisi : {this.state.fbExercicesA[3]}
 						<p>Epaules</p>
-						<ExercicesChoice muscleName="shouldersA" />
+						<ExercicesChoice muscleName="shouldersA" onChange={this.handleExerciceChoice} />
+						Vous avez choisi : {this.state.fbExercicesA[4]}
 						<p>Biceps</p>
-						<ExercicesChoice muscleName="bicepsA" />
+						<ExercicesChoice muscleName="bicepsA" onChange={this.handleExerciceChoice} />
+						Vous avez choisi : {this.state.fbExercicesA[5]}
 						<p>Triceps</p>
-						<ExercicesChoice muscleName="tricepsA" />
+						<ExercicesChoice muscleName="tricepsA" onChange={this.handleExerciceChoice} />
+						Vous avez choisi : {this.state.fbExercicesA[6]}
 						<p>Abdos</p>
-						<ExercicesChoice muscleName="absA" />
+						<ExercicesChoice muscleName="absA" onChange={this.handleExerciceChoice} />
+						Vous avez choisi : {this.state.fbExercicesA[7]}
 					</div>
 					<div id="fullbody_B">
 						<h5 className="center">Programme B</h5>
-						<p>
-							Et nulla velit amet consectetur cillum incididunt cupidatat sunt. Laboris in dolor dolor adipisicing
-							labore aute occaecat exercitation proident pariatur irure nisi. Voluptate sint ea qui do enim anim
-							commodo aliquip laboris quis ad exercitation. Duis officia magna voluptate tempor magna magna velit
-							pariatur adipisicing excepteur Lorem dolore. Do consequat ex Lorem aute aliqua proident consectetur qui
-							non. Sunt occaecat magna excepteur ad anim sit. Anim nulla Lorem incididunt qui cillum incididunt.
-							Occaecat mollit elit nisi mollit pariatur commodo irure Lorem adipisicing est nisi officia culpa
-							officia. Minim exercitation sunt esse do deserunt dolore commodo qui ut mollit et ex pariatur. Lorem et
-							nulla cillum nisi cupidatat cillum. Non duis proident sunt ullamco elit dolor amet. Nulla id esse in eu
-							laborum deserunt ex magna nulla. Magna exercitation qui cupidatat magna.
-						</p>
+						<p>Ischio-jambiers</p>
+						<ExercicesChoice muscleName="hamstringB" onChange={this.handleExerciceChoice} />
+						Vous avez choisi : {this.state.fbExercicesB[0]}
+						<p>Quadriceps et fessiers</p>
+						<ExercicesChoice muscleName="quadricepsB" onChange={this.handleExerciceChoice} />
+						Vous avez choisi : {this.state.fbExercicesB[1]}
+						<p>Pectoraux</p>
+						<ExercicesChoice muscleName="chestB" onChange={this.handleExerciceChoice} />
+						Vous avez choisi : {this.state.fbExercicesB[2]}
+						<p>Dorsaux</p>
+						<ExercicesChoice muscleName="backB" onChange={this.handleExerciceChoice} />
+						Vous avez choisi : {this.state.fbExercicesB[3]}
+						<p>Epaules</p>
+						<ExercicesChoice muscleName="shouldersB" onChange={this.handleExerciceChoice} />
+						Vous avez choisi : {this.state.fbExercicesB[4]}
+						<p>Biceps</p>
+						<ExercicesChoice muscleName="bicepsB" onChange={this.handleExerciceChoice} />
+						Vous avez choisi : {this.state.fbExercicesB[5]}
+						<p>Triceps</p>
+						<ExercicesChoice muscleName="tricepsB" onChange={this.handleExerciceChoice} />
+						Vous avez choisi : {this.state.fbExercicesB[6]}
+						<p>Abdos</p>
+						<ExercicesChoice muscleName="absB" onChange={this.handleExerciceChoice} />
+						Vous avez choisi : {this.state.fbExercicesB[7]}
 					</div>
+				</div>
+				<div id="exercicesComfirm">
+					<Button
+						className={"button_" + this.state.hoverFew[0]}
+						text="Retour"
+						onClick={() => this.setState({ step2of4: true, step3of4: false, hoverFew: [false, false, false] })}
+						onMouseEnter={() => this.toggleHoverFew(0)}
+						onMouseLeave={() => this.toggleHoverFew(0)}
+					/>
+					<Button
+						className={"button_" + this.state.hoverFew[1]}
+						text="Je valide mon programme"
+						onClick={() => this.setState({ step3of4: false, step4of4: true, hoverFew: [false, false, false] })}
+						onMouseEnter={() => this.toggleHoverFew(1)}
+						onMouseLeave={() => this.toggleHoverFew(1)}
+					/>
 				</div>
 			</div>
 		);

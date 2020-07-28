@@ -58,35 +58,52 @@ const ExerciceChoice = ({ muscleName, onChange, value }) => {
 		"Flexions du buste à la machine",
 		"Roue abdominale",
 	];
-	let lower_back = ["", "Extensions au banc", "Good morning"];
+	//let lower_back = ["", "Extensions au banc", "Good morning"];
 
 	let exercices;
 	switch (muscleName) {
-		case "hamstringA" || "hamstringB":
+		case "hamstringA":
+		case "hamstringB":
 			exercices = hamstring;
 			break;
-		case "quadricepsA" || "quadricepsB":
+
+		case "quadricepsA":
+		case "quadricepsB":
 			exercices = quadriceps;
 			break;
-		case "chestA" || "chestB":
+
+		case "chestA":
+		case "chestB":
 			exercices = chest;
 			break;
-		case "backA" || "backB":
+
+		case "backA":
+		case "backB":
 			exercices = back;
 			break;
-		case "shouldersA" || "shouldersB":
+
+		case "shouldersA":
+		case "shouldersB":
 			exercices = shoulders;
 			break;
-		case "bicepsA" || "tricepsB":
+
+		case "bicepsA":
+		case "bicepsB":
 			exercices = biceps;
 			break;
-		case "tricepsA" || "tricepsB":
+
+		case "tricepsA":
+		case "tricepsB":
 			exercices = triceps;
 			break;
-		case "absA" || "absB":
+
+		case "absA":
+		case "absB":
 			exercices = abs;
 			break;
+
 		default:
+			exercices = "x";
 			break;
 	}
 

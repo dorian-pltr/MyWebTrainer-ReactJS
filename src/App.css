@@ -147,7 +147,8 @@ footer {
 	max-width: 45%;
 	padding: 10px;
 	padding-bottom: 30px;
-	margin: 10px;
+	margin-right: 10px;
+	margin-bottom: 20px;
 	border: solid;
 	border-color: rgba(0, 0, 0, 0.85);
 	background-color: darkgrey;
@@ -155,4 +156,11 @@ footer {
 
 .select {
 	width: 300px;
+}
+
+#exercicesComfirm {
+	animation: fadeIn 2s ease 0.5s forwards;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
 }
