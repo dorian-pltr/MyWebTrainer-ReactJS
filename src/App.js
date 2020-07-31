@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import Button from "./Button";
 import ExercicesChoice from "./ExercicesChoice";
 import "./App.css";
+import jsPDF from "jspdf";
 
 class App extends Component {
 	constructor() {
@@ -18,12 +19,12 @@ class App extends Component {
 			step2of4: false,
 			step3of4: false,
 			step4of4: false,
-			step5of4: false,
 			fbExercicesA: ["", "", "", "", "", "", "", ""],
 			fbExercicesB: ["", "", "", "", "", "", "", ""],
 		};
 		this.fullbodyExerciceChoice = this.fullbodyExerciceChoice.bind(this); // garantir le this dans notre méthode
 		this.isProgramCompleted = this.isProgramCompleted.bind(this);
+		this.fullBodyPDF = this.fullBodyPDF.bind(this);
 	}
 
 	// Méthode pour gérer la souris sur plusierus "buttons"
@@ -36,6 +37,23 @@ class App extends Component {
 	toggleHover() {
 		let hoverCopy = !this.state.hover;
 		this.setState({ hover: hoverCopy });
+	}
+
+	// Méthode permettant la création de fichiers PDF
+	fullBodyPDF() {
+		var doc = new jsPDF("p", "pt");
+
+		doc.text(20, 20, "Mon programme d'entrainement");
+
+		doc.setFont("helvetica");
+		doc.setFontType("normal");
+		doc.text(20, 200, "FullBody A");
+
+		doc.setFont("helvetica");
+		doc.setFontType("normal");
+		doc.text(20, 400, "FullBody B");
+
+		doc.save("demo.pdf");
 	}
 
 	// Méthode pour afficher le panel de choix de fréquence d'entrainement
@@ -152,72 +170,71 @@ class App extends Component {
 			<div>
 				<h4>Laissez vous guider - étape 4/4</h4>
 				<h5>Je valide mon format d'entrainement</h5>
-				<p>
-					<b>FullBody A</b>
-				</p>
-				<table>
-					<tr>
-						<td>
-							<b>Muscles</b>
-						</td>
-						<td>Ischio-jambiers </td>
-						<td>Quadriceps</td>
-						<td>Pectoraux</td>
-						<td>Dorsaux</td>
-						<td>Epaules</td>
-						<td>Biceps</td>
-						<td>Triceps</td>
-						<td>Abdominaux</td>
-					</tr>
-					<tr>
-						<td>
-							<b>Exercices</b>
-						</td>
-						<td>{this.state.fbExercicesA[0]}</td>
-						<td>{this.state.fbExercicesA[1]}</td>
-						<td>{this.state.fbExercicesA[2]}</td>
-						<td>{this.state.fbExercicesA[3]}</td>
-						<td>{this.state.fbExercicesA[4]}</td>
-						<td>{this.state.fbExercicesA[5]}</td>
-						<td>{this.state.fbExercicesA[6]}</td>
-						<td>{this.state.fbExercicesA[7]}</td>
-					</tr>
-				</table>
+				<div id="jsx-template">
+					<p>
+						<b>FullBody A</b>
+					</p>
+					<table>
+						<tr>
+							<td>
+								<b>Muscles</b>
+							</td>
+							<td>Ischio-jambiers </td>
+							<td>Quadriceps</td>
+							<td>Pectoraux</td>
+							<td>Dorsaux</td>
+							<td>Epaules</td>
+							<td>Biceps</td>
+							<td>Triceps</td>
+							<td>Abdominaux</td>
+						</tr>
+						<tr>
+							<td>
+								<b>Exercices</b>
+							</td>
+							<td>{this.state.fbExercicesA[0]}</td>
+							<td>{this.state.fbExercicesA[1]}</td>
+							<td>{this.state.fbExercicesA[2]}</td>
+							<td>{this.state.fbExercicesA[3]}</td>
+							<td>{this.state.fbExercicesA[4]}</td>
+							<td>{this.state.fbExercicesA[5]}</td>
+							<td>{this.state.fbExercicesA[6]}</td>
+							<td>{this.state.fbExercicesA[7]}</td>
+						</tr>
+					</table>
 
-				<tr />
-				<p>
-					<b>FullBody B</b>
-				</p>
-				<tr />
-				<table>
-					<tr>
-						<td>
-							<b>Muscles</b>
-						</td>
-						<td>Ischio-jambiers </td>
-						<td>Quadriceps</td>
-						<td>Pectoraux</td>
-						<td>Dorsaux</td>
-						<td>Epaules</td>
-						<td>Biceps</td>
-						<td>Triceps</td>
-						<td>Abdominaux</td>
-					</tr>
-					<tr>
-						<td>
-							<b>Exercices</b>
-						</td>
-						<td>{this.state.fbExercicesB[0]}</td>
-						<td>{this.state.fbExercicesB[1]}</td>
-						<td>{this.state.fbExercicesB[2]}</td>
-						<td>{this.state.fbExercicesB[3]}</td>
-						<td>{this.state.fbExercicesB[4]}</td>
-						<td>{this.state.fbExercicesB[5]}</td>
-						<td>{this.state.fbExercicesB[6]}</td>
-						<td>{this.state.fbExercicesB[7]}</td>
-					</tr>
-				</table>
-				<p></p>
+					<p>
+						<b>FullBody B</b>
+					</p>
+					<table>
+						<tr>
+							<td>
+								<b>Muscles</b>
+							</td>
+							<td>Ischio-jambiers </td>
+							<td>Quadriceps</td>
+							<td>Pectoraux</td>
+							<td>Dorsaux</td>
+							<td>Epaules</td>
+							<td>Biceps</td>
+							<td>Triceps</td>
+							<td>Abdominaux</td>
+						</tr>
+						<tr>
+							<td>
+								<b>Exercices</b>
+							</td>
+							<td>{this.state.fbExercicesB[0]}</td>
+							<td>{this.state.fbExercicesB[1]}</td>
+							<td>{this.state.fbExercicesB[2]}</td>
+							<td>{this.state.fbExercicesB[3]}</td>
+							<td>{this.state.fbExercicesB[4]}</td>
+							<td>{this.state.fbExercicesB[5]}</td>
+							<td>{this.state.fbExercicesB[6]}</td>
+							<td>{this.state.fbExercicesB[7]}</td>
+						</tr>
+					</table>
+				</div>
 
 				<div id="programComfirm">
 					<Button
@@ -229,18 +246,14 @@ class App extends Component {
 					/>
 					<Button
 						className={"button_" + this.state.hoverFew[1]}
-						text="Je construis mon programme"
-						onClick={() => this.setState({ step4of4: false, step5of4: true, hoverFew: [false, false, false] })}
+						text="Générer un fichier PDF"
+						onClick={this.fullBodyPDF}
 						onMouseEnter={() => this.toggleHoverFew(1)}
 						onMouseLeave={() => this.toggleHoverFew(1)}
 					/>
 				</div>
 			</div>
 		);
-	}
-
-	ProgramGeneration() {
-		return <em>Générateur de fichier PDF, en cours de développement...</em>;
 	}
 
 	fullbodyProgram() {
@@ -482,7 +495,6 @@ class App extends Component {
 				{this.state.step2of4 && this.ProgramComfirm()}
 				{this.state.step3of4 && this.ProgramCreation()}
 				{this.state.step4of4 && this.ProgramValidation()}
-				{this.state.step5of4 && this.ProgramGeneration()}
 			</div>
 		);
 	}
