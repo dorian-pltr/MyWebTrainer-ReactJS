@@ -43,30 +43,17 @@ class App extends Component {
 	fullBodyPDF() {
 		var doc = new jsPDF("p", "pt");
 
-		doc.setFontType("bold");
-		doc.text(20, 40, "Mon programme d'entrainement");
+		doc.text(20, 20, "Mon programme d'entrainement");
 
-		doc.setFontType("bold");
-		doc.text(20, 100, "FullBody A");
-
+		doc.setFont("helvetica");
 		doc.setFontType("normal");
-		let posA = 120;
-		this.state.fbExercicesA.forEach((exercice) => {
-			posA += 20;
-			doc.text(20, posA, exercice);
-		});
+		doc.text(20, 200, "FullBody A");
 
-		doc.setFontType("bold");
-		doc.text(20, 340, "FullBody B");
-
+		doc.setFont("helvetica");
 		doc.setFontType("normal");
-		let posB = 360;
-		this.state.fbExercicesB.forEach((exercice) => {
-			posB += 20;
-			doc.text(20, posB, exercice);
-		});
+		doc.text(20, 400, "FullBody B");
 
-		doc.save("fullbody.pdf");
+		doc.save("demo.pdf");
 	}
 
 	// Méthode pour afficher le panel de choix de fréquence d'entrainement
@@ -178,7 +165,6 @@ class App extends Component {
 		);
 	}
 
-	//FullBody Valier et générer le PDF
 	ProgramValidation() {
 		return (
 			<div>
@@ -492,22 +478,14 @@ class App extends Component {
 	}
 
 	isProgramCompleted() {
-		var completed = -1;
 		for (var i = 0; i < this.state.fbExercicesA.length; i++) {
 			if ("" === this.state.fbExercicesA[i]) {
-				completed = 0;
+				alert("Veuillez compléter la liste de vos exercices");
 				break;
-			}
-		}
-		for (var j = 0; j < this.state.fbExercicesB.length; j++) {
-			if ("" === this.state.fbExercicesB[j]) {
-				completed = 0;
-			}
-		}
-		if (completed === 0) {
-			alert("Veuillez compléter la liste de vos exercices");
-		} else if (completed === -1) {
-			this.setState({ step3of4: false, step4of4: true, hoverFew: [false, false, false] });
+			} else if ("" === this.state.fbExercicesB[i]) {
+				alert("Veuillez compléter la liste de vos exercices");
+				break;
+			} else this.setState({ step3of4: false, step4of4: true, hoverFew: [false, false, false] });
 		}
 	}
 
